@@ -1,0 +1,39 @@
+<div class="row">
+	<div class="col-sm-6 col-sm-offset-3">
+		<h3 class="text-center">Signup</h3>
+		<p class="text-center text-muted">signup to access and store data.</p>
+		<p class="alert alert-success" ng-show="successMsg">{{successMsg}}</p>
+		<p class="alert alert-danger" ng-show="errorMsg">{{errorMsg}}</p>
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-6 col-sm-offset-3">
+		<form name="myForm" ng-submit="signup(myForm.$valid)" novalidate>
+			<div class="form-group" ng-class="{'has-success':(myForm.username.$valid && myForm.username.$touched && !usernameInvalid), 'has-error': (myForm.username.$invalid && myForm.username.$touched) || usernameInvalid}" >
+				<label>Username</label>
+				<input type="text" name="username" class="form-control" placeholder="Username" ng-model="username" ng-pattern="/^[a-zA-Z]+$/" ng-minlength="3" ng-maxlength="20" ng-blur="usernameChecker()"   ng-required="true">
+				<p ng-show="myForm.username.$invalid && myForm.username.$touched" class="help-block">Username is required</p>
+				<p class="help-block" ng-show="myForm.username.$invalid && myForm.username.$error.pattern">Username should contain only letters.</p>
+				<p class="help-block" ng-show="myForm.username.$invalid && myForm.username.$error.minlength">Username should be atleast 3 characters long.</p>
+				<p class="help-block" ng-show="myForm.username.$invalid && myForm.username.$error.maxlength">Username should be not more than 20 characters.</p>
+				<p class="help-block" ng-show="usernameMsg && !myForm.username.$error.required && myForm.username.$valid">{{usernameMsg}}</p>
+			</div>
+			<div class="form-group" ng-class="{'has-success':myForm.email.$valid && myForm.email.$touched && !emailInvalid, 'has-error':myForm.email.$invalid && myForm.email.$touched || emailInvalid}" >
+				<label>Email</label>
+				<input type="text" name="email" class="form-control" placeholder="Email" ng-model="email" ng-pattern="/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/" ng-blur="emailChecker()" ng-required="true">
+				<p class="help-block" ng-show="myForm.email.$invalid && myForm.email.$touched">Email is required.</p>
+				<p class="help-block" ng-show="myForm.email.$invalid && myForm.email.$error.pattern">Not an valid email.</p>
+				<p class="help-block" ng-show="emailMsg && !myForm.email.$error.required && myForm.email.$valid">{{emailMsg}}</p>
+			</div>
+			<div class="form-group" ng-class="{'has-success': myForm.password.$valid && myForm.password.$touched, 'has-error': myForm.password.$invalid && myForm.password.$touched}" >
+				<label>Password</label>
+				<input type="password" name="password" class="form-control" placeholder="Password" ng-model="password" ng-minlength="6" ng-required="true">
+				<p class="help-block" ng-show="myForm.password.$invalid && myForm.password.$touched">Password is required.</p>
+				<p class="help-block" ng-show="myForm.password.$invalid && myForm.password.$error.minlength">Password min 6 characters.</p>
+			</div>
+			<div class="form-group">
+				<button class="btn btn-success">Signup</button>
+			</div>
+		</form>
+	</div>
+</div>

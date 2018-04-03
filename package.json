@@ -1,0 +1,27 @@
+{
+  "name": "mean-auth",
+  "version": "1.0.0",
+  "description": "Mean authentication using passport",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Karthik",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.2",
+    "chalk": "^2.3.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.2.0",
+    "mongoose": "^5.0.11",
+    "mongoose-validator": "^2.0.2",
+    "morgan": "^1.9.0",
+    "nodemailer": "^4.6.3",
+    "nodemailer-sendgrid-transport": "^0.2.0",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0"
+  }
+}
